@@ -75,9 +75,32 @@ describe("Create Event", () => {
     // cy.get('#mat-chip-list-input-0').type('bgmkaniz@gmail.com').type('{enter}')
     // Upload image
     // const fileName = '900848.pdf'
-    cy.fixture('900848.pdf').then(fileContent => {
-      cy.get('#fileUpload').attachFile({fileContent, fileName: '900848.pdf', mimeType: 'application/pdf'}, {subjectType: 'input'})
-  })
+//     cy.fixture('900848.pdf').then(fileContent => {
+//       cy.get('#fileUpload').attachFile({fileContent, fileName: '900848.pdf', mimeType: 'application/pdf'}, {subjectType: 'input'})
+      
+//   })
+  const filePath = '900848.pdf'
+  cy.get('#fileUpload').attachFile(filePath)
+  cy.readFile('cypress/fixtures/900848.pdf', { timeout: 6000 })
+
+  /// <reference types="Cypress" />
+// import 'cypress-file-upload';
+// describe('Example to demonstrate file upload in cypress', function () {
+//     debugger
+//     before(function () {
+//         cy.visit('https://the-internet.herokuapp.com/upload')
+//     })
+
+//     it('File Upload using cypress-file-upload npm package', () => {
+//         debugger
+//         const filepath = 'pdf/FATEMA-TUZ-JOHURA.pdf'
+//         cy.get('input[type="file"]').attachFile(filepath)
+
+
+//         cy.readFile('cypress/fixtures/pdf/FATEMA-TUZ-JOHURA.pdf', { timeout: 6000 }).should('exist')
+//     })
+// })
+
 
 
     })
